@@ -1,8 +1,12 @@
-import sys
+import sys, os
+from subprocess import call
 from config import *
 
 print('Compiling ADFs...')
 compileADFs(config['TurbModel'], adfList=[dirichiletBC, neumannBC, deriv1, deriv2])
+os.chdir('Channel')
+call('pymake > log', shell=True)
+os.chdir('..')
 
 print('Setting up data structures...')
 from Channel.Channel import Channel
