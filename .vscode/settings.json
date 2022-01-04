@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "adfunc__internalfirstderivative.h": "c",
+        "adfunc__internalsecondderivative.h": "c",
+        "adfunc__boundaryfirstderivative.h": "c"
+    }
+}
