@@ -9,6 +9,7 @@ def compileADFs(TurbModel, adfList=[]):
             'phi'      : [TurbModel.nStates],
             'grad_phi' : [TurbModel.nStates],
             'hess_phi' : [TurbModel.nStates],
+            'cb1'      : [],
         },
         inputs = {
             'nu'       : [],
@@ -16,7 +17,9 @@ def compileADFs(TurbModel, adfList=[]):
             'wallDist' : [],
         }
     ):
-        model = TurbModel(inputs_AD, inputs)
+        vars = {'phi':inputs_AD['phi'], 'grad_phi':inputs_AD['grad_phi'], 'hess_phi':inputs_AD['hess_phi']}
+        constants = {'nu':inputs['nu'], 'dpdx':inputs['dpdx'], 'wallDist':inputs['wallDist'], 'TurbModel__cb1':inputs_AD['cb1']}
+        model = TurbModel(vars, constants)
         outputs = { }
         outputs_AD = model.residuals
         return outputs, outputs_AD

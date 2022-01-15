@@ -1,4 +1,5 @@
 #include "../JacAD.h"
+#include <stdio.h>
 
 static int buffer[10000];
 static int bufferCount;
@@ -17,7 +18,7 @@ void create__JacAD
 {
     delete__JacAD(_self); JacAD *self = _self;
     self->inputs = inputs; self->outputs = outputs;
-    self->nRows = nInputs; self->nCols = nOutputs;
+    self->nRows = nOutputs; self->nCols = nInputs;
 
     self->offsets = calloc(self->nRows+1, sizeof(int));
     self->offsets[0] = 0;
@@ -62,7 +63,9 @@ static void registerDeps(JacAD *self, VarAD *var)
         unsigned long diff = depPtr - self->inputs;
         if(diff < self->nRows)
         {
-            for(int j=0; j<bufferCount; j++) if(buffer[j]==diff) return;
+            int exists = 0;
+            for(int j=0; j<bufferCount; j++) if(buffer[j]==diff)
+            { exists=1; break; } if(exists) continue;
             buffer[bufferCount++] = diff;
         }
         else registerDeps(self, depPtr);

@@ -1,0 +1,6 @@
+#!/home/vsriv/miniconda3/bin/python
+import sys
+sys.path.insert(0, "/home/vsriv/codes/pySuite")
+from pymake import make
+sys.path.pop(0)
+make()

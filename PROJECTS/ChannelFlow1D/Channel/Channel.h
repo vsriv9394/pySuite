@@ -28,7 +28,9 @@ typedef struct
     VarAD *U_y;
     VarAD *U_yy;
     VarAD *R;
+    VarAD cb1;
     JacAD J;
+    JacAD J_cb1;
 }
 Channel;
 

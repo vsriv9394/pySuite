@@ -7,7 +7,7 @@ def getDataFrom(Cdata):
     
     y = np.ctypeslib.as_array(Cdata.y, shape=[Cdata.nPoints])
     U = np.ctypeslib.as_array(Cdata.U_values, shape=[Cdata.nPoints, Cdata.nStates])
-    R = np.ctypeslib.as_array(Cdata.R_values, shape=[Cdata.nPoints-2, Cdata.nStates])
+    R = np.ctypeslib.as_array(Cdata.R_values, shape=[Cdata.nPoints, Cdata.nStates])
     
     J_offsets = np.ctypeslib.as_array(Cdata.J.offsets, shape=[Cdata.J.nRows+1])
     J_colIds  = np.ctypeslib.as_array(Cdata.J.colIds,  shape=[J_offsets[-1]])
