@@ -1,0 +1,28 @@
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+gcc  -c -O3 -fPIC -o obj/setup.o src/setup.c
+gcc  -c -O3 -fPIC -o obj/init.o src/init.c
+gcc  -c -O3 -fPIC -o obj/calculate.o src/calculate.c
+gcc  -c -O3 -fPIC -o obj/delete.o src/delete.c
+gcc -O3 -shared -fPIC -o libChannel.so obj/setup.o obj/init.o obj/calculate.o obj/delete.o -Wl,-rpath=/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_residuals -L/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_residuals -lADF_residuals -Wl,-rpath=/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_neumannBC -L/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_neumannBC -lADF_neumannBC -Wl,-rpath=/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_dirichiletBC -L/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_dirichiletBC -lADF_dirichiletBC -Wl,-rpath=/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_deriv2 -L/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_deriv2 -lADF_deriv2 -Wl,-rpath=/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_deriv1 -L/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_deriv1 -lADF_deriv1 -Wl,-rpath=/home/vsriv/codes/pySuite/pyad/JacAD -L/home/vsriv/codes/pySuite/pyad/JacAD -lJacAD -Wl,-rpath=/home/vsriv/codes/pySuite/pyad/VarAD -L/home/vsriv/codes/pySuite/pyad/VarAD -lVarAD
+
+pymake [/home/vsriv/codes/pySuite/pyad/VarAD]:
+
+pymake [/home/vsriv/codes/pySuite/pyad/JacAD]:
+
+pymake [/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_deriv1]:
+
+pymake [/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_deriv2]:
+
+pymake [/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_dirichiletBC]:
+
+pymake [/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_neumannBC]:
+
+pymake [/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/ADF/ADF_residuals]:
+
+pymake [/home/vsriv/codes/pySuite/PROJECTS/ChannelFlow1D/Channel]:

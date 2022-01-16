@@ -164,8 +164,9 @@ def parseHeaderFile(className):
 def parseSourceFiles(className):
     subroutines = {}
     for filename in os.listdir('src'):
-        name, args = parseSourceFile(className, filename)
-        subroutines[name] = args
+        if filename[-2:]=='.c':
+            name, args = parseSourceFile(className, filename)
+            subroutines[name] = args
     return subroutines
     
 ###############################################################################
